@@ -5,9 +5,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String word;
 
+        //Добавим автора
         Author author = new Author("Steven", "Pinker", 6);
 
+        //Добавим книгу
         Book book = new Book("The Better Angels of Our Nature", 2011, author, 832);
+
+        //Проверим, большая ли книга
         if(book.isBig(book.pages)) {
             System.out.println("Книга " + book.title + " большая");
         } else {

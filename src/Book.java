@@ -2,7 +2,7 @@ public class Book {
 
     String title;
     int releaseYear;
-    Author author;
+    Author author; //В класс книги теперь автор должен передаваться и храниться как объект класса Author.
     int pages;
 
     public Book(String title, int releaseYear, Author author, int pages){
@@ -12,23 +12,22 @@ public class Book {
         this.pages = pages;
     }
 
-//    возвращающий ответ на вопрос, является ли книга большой;
+    //    возвращающий ответ на вопрос, является ли книга большой;
     public boolean isBig(int pages){
         return pages > 500;
     }
 
-//    возвращающий ответ на вопрос, содержится ли в описании книги имя и фамилия втора
+    //    возвращающий ответ на вопрос, содержится ли в описании книги имя и фамилия втора
     public boolean matches(String word){
         boolean authorName = author.name.contains(word);
         boolean authorSurname = author.surname.contains(word);
         boolean titleOfTheBook = title.contains(word);
-
         // При совпадении хотябы в одном поле вернем true
         return  (authorName | authorSurname | titleOfTheBook);
 
     }
 
-//    возвращающий оценку стоимости книги
+    //    возвращающий оценку стоимости книги
     public int estimatePrice(){
 // Цена книги рассчитывается как 3 рубля за страницу, умноженное на квадратный корень из рейтинга,
 // после чего округлённое вниз, но не меньше 250 рублей. Для вычисления квадратного корня воспользуйтесь
