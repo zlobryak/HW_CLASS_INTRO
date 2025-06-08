@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String name;
-        String surname;
+        String word;
 
         Author author = new Author("Steven", "Pinker", 6);
 
@@ -15,14 +14,15 @@ public class Main {
             System.out.println("Книга " + book.title + " не большая");
         }
 
-        //Попросим пользователя ввести имя и фамилию автора для проверки
-        System.out.println("Ведите имя автора:");
-        name = scanner.nextLine();
-        System.out.println("Введите фамилию автора:");
-        surname = scanner.nextLine();
-        if(book.matches(name, surname)){
-            System.out.println("Это имя и фамилия автора этой книги");
+        //Попросим пользователя ввести слово для поиска
+        System.out.println("Ведите слово для поиска автора:");
+        word = scanner.nextLine();
+        if (book.matches(word)) {
+            System.out.println("Описание содержит это слово");
+        } else {
+            System.out.println("Описание не содержит это слово");
         }
+
         //Выведем стоимость книги
         System.out.println("Книга будет стоить: " + book.estimatePrice());
     }

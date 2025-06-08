@@ -17,29 +17,16 @@ public class Book {
         return pages > 500;
     }
 
-
 //    возвращающий ответ на вопрос, содержится ли в описании книги имя и фамилия втора
-    public boolean matches(String name, String surname){
-        boolean authorName = author.name.contains(name);
-        boolean authorSurname = author.surname.contains(surname);
+    public boolean matches(String word){
+        boolean authorName = author.name.contains(word);
+        boolean authorSurname = author.surname.contains(word);
+        boolean titleOfTheBook = title.contains(word);
 
-        if (authorName && authorSurname) {
-                    // При совпадении имени и фамилии просто вернем true
-                return true;
-        }
-            else {
-                    //Если введены неподходящие имя  или фамили, выведем в консоль, что введено неверно.
+        // При совпадении хотябы в одном поле вернем true
+        return  (authorName | authorSurname | titleOfTheBook);
 
-                System.out.print(authorName ? "Имя совпадает. " : "Имя не совпадает. ");
-
-                System.out.println(authorSurname ? "Фамилия совпадает." : "Фамилия не совпадает.");
-                    // и вернем falser
-
-
-                return false;
-            }
     }
-
 
 //    возвращающий оценку стоимости книги
     public int estimatePrice(){
